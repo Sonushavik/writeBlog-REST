@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Details</title>
+        <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+        <h1>details</h1>
+        <div class="post">
+                <div class="about">
+                        <p class="username"><%= post.username %></p>
+                        <p class="timestamp"><%= post.timestamp %></p>
+                </div>
+                <div class="contentBox">
+                        <p class="content"><%= post.content %></p>
+                </div>
+                <div class="response">
+                        <p class="likes"><%= post.likes %></p>
+                        <div class="comment hide">
+                        <% post.comments.forEach((comment) => { %>
+                                <p><%= comment.username %></p>
+                                <p><%= comment.timestamp %></p>
+                                <p><%= comment.content %></p>
+                        <% }) %>
+                        </div>
+                </div>
+        </div>
+</body>
+</html>

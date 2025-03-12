@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Write-Blog</title>
+        <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+                <h1>Write your blog</h1>
+                <div class="new-blog"><a href="http://localhost:8080/posts/new" class="button">+</a></div>
+        <div class="container">
+                <%  posts.forEach((post) => {  %>       
+                        <div class="post">
+                                <div class="about">
+                                        <p class="username"><%= post.username %></p>
+                                        <p class="timestamp"><%= post.timestamp %></p>
+                                        <a href="http://localhost:8080/posts/<%= post.id %>">view details</a>
+                                        <a href="http://localhost:8080/posts/<%= post.id %>/edit">Edit post</a>
+                                        <form method="post" action="/posts/<%=post.id  %>?_method=DELETE">
+                                                <button>Delete</button>
+                                        </form>
+                                </div>
+                                <div class="contentBox">
+                                        <p class="content"><%= post.content %></p>
+                                </div>
+                                <div class="response">
+                                        <p class="likes"><%= post.likes %></p>
+                                        <div class="comment hide">
+                                        <% post.comments.forEach((comment) => { %>
+                                                <p><%= comment.username %></p>
+                                                <p><%= comment.timestamp %></p>
+                                                <p><%= comment.content %></p>
+                                        <% }) %>
+                                        </div>
+                                </div>
+                        </div>
+                <% }) %>
+        </div>
+
+</body>
+</html>
