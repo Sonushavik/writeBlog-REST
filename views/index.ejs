@@ -14,7 +14,7 @@
                         <div class="post">
                                 <div class="about">
                                         <p class="username"><%= post.username %></p>
-                                        <p class="timestamp"><%= post.timestamp %></p>
+                                        <p class="timestamp"><%= post.published_at.toLocaleString() %></p>
                                         <a href="http://localhost:8080/posts/<%= post.id %>">view details</a>
                                         <a href="http://localhost:8080/posts/<%= post.id %>/edit">Edit post</a>
                                         <form method="post" action="/posts/<%=post.id  %>?_method=DELETE">
@@ -22,17 +22,8 @@
                                         </form>
                                 </div>
                                 <div class="contentBox">
+                                        <p class="title"><b><%= post.title  %></b></p>
                                         <p class="content"><%= post.content %></p>
-                                </div>
-                                <div class="response">
-                                        <p class="likes"><%= post.likes %></p>
-                                        <div class="comment hide">
-                                        <% post.comments.forEach((comment) => { %>
-                                                <p><%= comment.username %></p>
-                                                <p><%= comment.timestamp %></p>
-                                                <p><%= comment.content %></p>
-                                        <% }) %>
-                                        </div>
                                 </div>
                         </div>
                 <% }) %>

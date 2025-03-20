@@ -10,21 +10,13 @@
         <h1>details</h1>
         <div class="post">
                 <div class="about">
+                        <p class="id"><%= post.id %></p>
                         <p class="username"><%= post.username %></p>
-                        <p class="timestamp"><%= post.timestamp %></p>
+                        <p class="timestamp"><%=  post.published_at.toLocaleString() %></p>
                 </div>
                 <div class="contentBox">
+                        <p class="title"><%= post.title %></p>
                         <p class="content"><%= post.content %></p>
-                </div>
-                <div class="response">
-                        <p class="likes"><%= post.likes %></p>
-                        <div class="comment hide">
-                        <% post.comments.forEach((comment) => { %>
-                                <p><%= comment.username %></p>
-                                <p><%= comment.timestamp %></p>
-                                <p><%= comment.content %></p>
-                        <% }) %>
-                        </div>
                 </div>
         </div>
 </body>
