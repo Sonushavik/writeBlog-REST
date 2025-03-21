@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+*{
+        max-width: 1440px;
+        margin: 0 auto;
+        font-family: 'Ubuntu', sans-serif;
+}
+
+body{
+        background-color: #2D336B;
+        /* position: relative; */
+        .ubuntu-light {
+                font-family: "Ubuntu", sans-serif;
+                font-weight: 300;
+                font-style: normal;
+              }
+}
+
+.container{
+        width: 100%;
+        margin: 10px auto;
+}
+
+.post{
+        width: 96%;
+        background-color: #A9B5DF;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        max-height: 160px;
+        overflow: scroll;
+        scrollbar-width: none;
+}
+
+.edit-post{
+        width: 96%;
+}
+
+.edit-pass input{
+        margin: 5px;
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        opacity: 0.8;
+}
+
+.about{
+        background-color: #7886C7;
+        width: 96%;
+        padding:  5px;
+        border-radius: 5px;
+        margin-top: 5px;
+}
+
+.about .username{
+        font-weight: bold;
+        color: #000;
+}
+
+.about .timestamp {
+        font-size: 8px;
+        color: #e9ecc5;
+        margin-top: 5px;
+    }
+
+.formate-btn-group{
+        display: flex;
+        gap: 5px;
+        margin: auto 5px;
+}
+
+.delete-btn{
+        background-color: inherit;
+        border: none;
+        cursor: pointer;
+}
+
+.post-head{
+        width: 99%;
+        background-color: #7886C7;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 5px;
+}
+
+
+.contentBox .title{
+        display: block;
+        text-align: left;
+        padding: 5px 2px;
+}
+
+.new-blog{
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 20;
+}
+
+.new-blog .button{
+        font-size: 30px;
+        padding: 10px;
+        font-weight: 900;
+        opacity: 0.8;
+        background-color: #2D336B;
+        text-decoration: none;
+        color: #f0f0f0;
+}
+
+/* Navbar Styling */
+.navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(45deg, #007bff, #6610f2);
+        color: white;
+        padding: 15px 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Left section (Title) */
+    .navbar-left h2 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    /* Right section (Total Blogs) */
+    .navbar-right h3 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: normal;
+    }
+    
+    /* Styling the Blog Count */
+    .blog-count {
+        background: #ffcc00;
+        color: #333;
+        padding: 3px 15px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    
+    /* Add some margin to the hr */
+    hr {
+        margin-top: 15px;
+        border: 1px solid #ddd;
+    }
+    
+    .home{
+        height: 100vh;
+    }
+
+    .home-link-btn-grp{
+        display: flex;
+        height: 70vh;
+        flex-direction: column;
+        margin: 25px auto;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .btn{
+        background: #ffcc00;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-weight: bolder;
+        font-size: large;
+        cursor: pointer;
+        border: none;
+        &:hover{
+                opacity: 0.8;
+        }
+
+        &:active{
+                scale: 0.9;
+                transition: all linear 0.03ms;
+        }
+    }
+    .home-link-btn-grp a{
+        text-decoration: none;
+        color: #333;
+    }
+
+    .new-blog-box{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    .user-detail-box{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 10px;
+        border: 0.5px solid black;
+        padding: 20px 0;
+        border-radius: 5px ;
+        background-color: #7886C7;
+    }
+
+    .user-detail-box input{
+        width: 100%;
+        padding: 5px;
+        border-radius: 10px;
+        border: none;
+        opacity: 0.8;
+    }
+
+    .content-box{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 5px ;
+        padding: 0 auto ;
+    }
+
+.title{
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+}
+
+.title input{
+        width: 1000px;
+        margin: 0 auto;
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+}
+
+.blog{
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+}
+
+.blog textarea{
+        width: 1000px;
+        min-height: 300px;
+        margin: 10px auto;
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+
+}
+
+
+.id{
+        font-size: 10px;
+}
+
+.footer{
+        /* position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%); */
+        width: 100%;
+        text-align: center;
+        background-color: #333;
+        color: white;
+        padding: 10px 0;
+        opacity: 0.3;
+}
+
+.modal{
+        position:fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 20;
+        background: #000;
+        border: 1px solid green;
+        color: #A9B5DF;
+        padding: 5px;
+        border-radius: 5px;
+}
+
+.hide {
+        display: none;
+}
+
+.show{
+        display: block;
+}
+
+.red{
+        background-color: red;
+}
+
+textarea{
+        text-align: left;
+}

@@ -1,20 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>new-blog</title>
-        <link rel="stylesheet" href="/css/index.css">
-</head>
-<body>
-        <h1>Write your blog</h1><hr>
-        <form action="/posts" method="post">
-                username: <input type="text" name="username" placeholder="username"><br><br>
-                email: <input type="email" name="email" placeholder="enter email"><br><br>
-                password: <input type="password" name="password" placeholder="enter password"><br><br>
-                title: <input type="text" name="title" placeholder="title"><br><br>
-                blog: <textarea name="content" id=""></textarea><br><br>
-                <button type="submit">submit</button>
-        </form>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>new-blog</title>
+		<link rel="stylesheet" href="/css/style.css" />
+	</head>
+
+	<body>
+		<%- include('includes/modal') %>
+		<%- include('includes/navbar') %>
+		<form action="/posts" method="post" class="newBlogForm">
+			<div class="new-blog-box">
+				<div class="user-detail-box">
+					<div class="username">
+						<input type="text" name="username" placeholder="username" />
+					</div>
+					<div class="email">
+						<input type="email" name="email" placeholder="email" />
+					</div>
+					<div class="password">
+						<input type="password" name="password" placeholder="password" />
+					</div>
+				</div>
+
+				<div class="content-box">
+					<div class="title">
+						<input type="text" name="title" placeholder="title" />
+					</div>
+					<div class="blog">
+						<textarea name="content" id="" placeholder="write-blog" required></textarea>
+					</div>
+                                        <button type="submit" class="btn">submit</button>
+				</div>
+			</div>
+		</form>
+
+		<%- include('includes/footer') %>
+		<script src="/js/modal.js"></script>
+	</body>
 </html>

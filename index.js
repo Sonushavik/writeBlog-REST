@@ -103,17 +103,36 @@ let getRandomBlog = () => {
 //         }
 //       ];
 
-app.get('/', (req,res) => {
-  let q= "SELECT COUNT(*) FROM blogs";
+app.use((req, res, next) => {
+  let q= "SELECT COUNT(*) AS total FROM blogs";
   try {
     connection.query(q, (error, result) => {
-      if(error) throw error;
-      let totalblog = result[0]["COUNT(*)"]
-      res.render("home.ejs",{totalblog})
+      if(error){
+        console.log(error);
+        res.locals.totalblog = 0;
+      }else{
+        res.locals.totalblog = result[0].total;
+      }
+      next();
     })
   } catch (error) {
-    console.log(error);
+    
   }
+})
+
+app.get('/', (req,res) => {
+  // let q= "SELECT COUNT(*) FROM blogs";
+  // try {
+  //   connection.query(q, (error, result) => {
+  //     if(error) throw error;
+  //     let totalblog = result[0]["COUNT(*)"]
+  //     res.render("home.ejs",{totalblog})
+  //   })
+  // } catch (error) {
+  //   console.log(error);
+  // }
+
+  res.render("home.ejs");
 })
 
 app.get('/posts', (req,res) => {
@@ -143,7 +162,6 @@ app.post('/posts', (req,res) => {
         try {
           connection.query(q, values, (error, result) => {
             if(error) throw error;
-            console.log(result);
             res.redirect('/posts') 
           })
         } catch (error) {
@@ -158,7 +176,6 @@ app.get("/posts/:id", (req, res) => {
           connection.query(q, (error, result) => {
             if(error) throw error;
             let post = result[0];
-            console.log(result);
             res.render("show.ejs", {post})
           })
         } catch (error) {
@@ -177,8 +194,6 @@ app.patch("/posts/:id", (req,res) => {
             if(editpass != blog.password){
               res.send("Wrong password");
             }else{
-              console.log(newtitle);
-              console.log(newcontent)
               let q2 = `UPDATE blogs SET title = '${newtitle}' , content = '${newcontent}' where id = '${id}'`
               connection.query(q2, (error, result) => {
                 if(error) throw error;
@@ -220,6 +235,19 @@ app.delete("/posts/:id", (req,res) => {
           console.log(error);
         }
 })
+
+app.use((req, res, next) => {
+  const error = new Error("Page Not Found");
+  error.status = 404;
+  next(error);
+});
+
+// Global Error Handling Middleware
+app.use((error, req, res, next) => {
+  res.status(error.status || 500);
+  res.render("error", { error });
+});
+
 
 app.listen(PORT, () => {
         console.log(`app is listening on the localhost:${PORT}`);

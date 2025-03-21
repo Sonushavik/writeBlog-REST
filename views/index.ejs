@@ -4,30 +4,42 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Write-Blog</title>
-        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-                <h1>Write your blog</h1>
+        <%- include('includes/modal') %>
+        <%- include('includes/navbar') %> 
                 <div class="new-blog"><a href="http://localhost:8080/posts/new" class="button">+</a></div>
         <div class="container">
                 <%  posts.forEach((post) => {  %>       
                         <div class="post">
-                                <div class="about">
-                                        <p class="username"><%= post.username %></p>
-                                        <p class="timestamp"><%= post.published_at.toLocaleString() %></p>
-                                        <a href="http://localhost:8080/posts/<%= post.id %>">view details</a>
-                                        <a href="http://localhost:8080/posts/<%= post.id %>/edit">Edit post</a>
-                                        <form method="post" action="/posts/<%=post.id  %>?_method=DELETE">
-                                                <button>Delete</button>
-                                        </form>
+                                <div class="post-head">
+                                        <div class="about">
+                                                <div class="username">
+                                                        <%= post.username %> 
+                                                </div>
+                                                <div class="timestamp">
+                                                        <%= post.published_at.toLocaleString() %>
+                                                </div>
+                                        </div>
+                                        <div class="formate-btn-group">
+                                                <a href="http://localhost:8080/posts/<%= post.id %>"><i class="fa-solid fa-eye"></i></a>
+                                                <a href="http://localhost:8080/posts/<%= post.id %>/edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                <form method="post" action="/posts/<%=post.id  %>?_method=DELETE">
+                                                        <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                                                </form>
+                                        </div>
                                 </div>
+                                        
                                 <div class="contentBox">
-                                        <p class="title"><b><%= post.title  %></b></p>
-                                        <p class="content"><%= post.content %></p>
+                                        <div class="title"><b><i class="fa-regular fa-square-caret-right"></i><%= post.title  %></b></div>
+                                        <div class="content"><%= post.content %></div>
                                 </div>
                         </div>
                 <% }) %>
         </div>
-
+        <%- include('includes/footer') %>
+        <script src="/js/modal.js"></script>
 </body>
 </html>

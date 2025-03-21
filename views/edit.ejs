@@ -1,26 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="/css/index.css">
-</head>
-<body>
-        <h1>Edit your post</h1>
-        <div class="post">
-                <div class="about">
-                        <p class="username"><%= post.username %></p>
-                        <p class="timestamp"><%=  post.published_at.toLocaleString() %></p>
-                </div>
-                <div class="contentBox">
-                        <form method="post" action="/posts/<%= post.id %>?_method=PATCH">
-                                title:<input type="text" name="newtitle" value="<%= post.title %>"><br><br>
-                                content: <textarea name="newcontent" id="" rows="5" cols="40"><%= post.content %></textarea><br><br>
-                                password:<input type="password" name="editpass" placeholder="enter correct password">
-                                <button type="submit">submit</button>
-                        </form>
-                </div>
-        </div>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="/css/style.css" />
+	</head>
+
+	<body>
+                <%- include('includes/modal') %>
+		<%- include('includes/navbar') %>
+		<div class="edit-post">
+			<div class="about">
+				<div class="username"><%= post.username %></div>
+				<div class="timestamp"><%= post.published_at.toLocaleString() %></div>
+			</div>
+			<div class="container">
+				<form method="post" action="/posts/<%= post.id %>?_method=PATCH" class="editBlogForm">
+					<div class="content-box">
+						<div class="title">
+							<input type="text" name="newtitle" value="<%= post.title %>" />
+						</div>
+						<div class="blog">
+							<textarea name="newcontent" id>
+                                                        <%= post.content.trim() %>
+                                                        </textarea>
+						</div>
+                                                <div class="edit-pass">
+                                                        <input
+							type="password"
+							name="editpass"
+							placeholder="enter correct password"
+                                                        required
+						/>
+                                                </div>
+						
+						<button class="btn "  type="submit">submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+                <%- include('includes/footer') %>
+		<script src="/js/modal.js"></script>
+	</body>
 </html>
