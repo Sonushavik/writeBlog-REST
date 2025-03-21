@@ -1,6 +1,6 @@
 <h1>WriteBlog</h1>
 WriteBlog is a simple and responsive blogging platform that allows users to create, edit, and publish blog posts. Built using HTML, CSS, JavaScript, Express.js, MySQL, and EJS, it follows REST API principles to ensure structured and scalable backend operations. <hr>
-
+<p>Check it: <a href="https://www.linkedin.com/posts/sonushavik_writeblog-restapi-webdevelopment-activity-7308717884099223552-fgDB?utm_source=share&utm_medium=member_desktop&rcm=ACoAADZ6PfsBb-8jW85Vemv30J-dtmrMOoqaG14">Demo</a></p>
 <h2>Features</h2>
 <ul>
 <li><b>📝 Create & Edit Blogs:</b> Users can write and edit blog posts dynamically.</li>
